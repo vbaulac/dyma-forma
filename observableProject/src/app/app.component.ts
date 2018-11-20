@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Observer, Subscription } from 'rxjs';
+import { Observable, Observer, Subscription, Subject, BehaviorSubject } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,9 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'observableProject';
 
   ngOnInit() {
+
+    // OBSERVABLE
+
     const obs = Observable.create((observer: Observer<any>) => {
         const data = 2;
         observer.next(2);
@@ -39,9 +43,63 @@ export class AppComponent implements OnInit, OnDestroy {
     // });
 
     sub.unsubscribe();
+
+    // SUBJECT
+
+    const subject = new Subject<string>();
+
+    subject.next('before subscribtion');
+
+    const s1 = subject.subscribe((x) => { // just one callback so it is next
+      console.log('[subscriber 1] : ', x);
+    })
+    
+    const s2 = subject.subscribe((x) => {
+      console.log('[subscriber 2] : ', x);
+    })
+
+    subject.next('after subscribtion');
+
+    s1.unsubscribe();
+
+    subject.next('s1 has unsubscribed');
+
+    // BEHAVIOUR SUBJECT
+
+    const behaviourSubject = new BehaviorSubject<string>('init value');
+
+    behaviourSubject.next('first passed value');
+
+    const behavS1 = behaviourSubject.subscribe((x) => console.log('[behavS1] just subscribe, value is : ', x));
+
+    // PIPES
+
+    const behavSubject2 = new BehaviorSubject<User>({
+      name: 'Tom',
+      age: 32,
+      mail: 'super@super.su'
+    });
+
+    const mySubscriber = behavSubject2.pipe(
+      filter((user: User) => {
+        return user.age > 30;
+      }),
+      map((user: User) => {
+        return user.mail;
+      })
+    ).subscribe((email: string) => {
+      console.log(email);
+    })
+
   }
 
   ngOnDestroy() {
-    
+    // we unsubscribe here most of the time
   }
+}
+
+interface User {
+  name: string,
+  age: number,
+  mail: string
 }
