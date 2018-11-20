@@ -1,0 +1,6 @@
+<div class="row">
+    <app-cocktails-list [cocktails]="cocktails" class="col-5"
+                        (cocktailSelection)="updateCocktail($event)"></app-cocktails-list>
+    <app-cocktails-details [cocktail]="selectedCocktail" 
+                          class="col-7"></app-cocktails-details>
+  </div>
