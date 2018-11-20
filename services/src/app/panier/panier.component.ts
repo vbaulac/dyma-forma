@@ -15,4 +15,9 @@ export class PanierComponent implements OnInit {
     this.panier = this.panierService.panier;
   }
 
+  remove(i: number) {
+    console.log(i);
+    this.panierService.removeAliment(i);
+  }
+
 }

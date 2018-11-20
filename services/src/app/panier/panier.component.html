@@ -1,6 +1,8 @@
 <div class="col-6 mx-auto" style="margin-top:50px">
   <h4>Panier : </h4>
   <ul class="list-group">
-    <li *ngFor="let aliment of panier" class="list-group-item">{{ aliment }}</li>
+    <li *ngFor="let aliment of panier; let i = index" class="list-group-item">{{ aliment }}
+      <button (click)="remove(i)" class="btn btn-danger ml-auto">Supprimer</button>
+    </li>
   </ul>
 </div>

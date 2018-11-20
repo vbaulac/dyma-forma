@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { AddComponent } from './add/add.component';
 import { PanierComponent } from './panier/panier.component';
 
-import { PanierService } from './shared/services/panier.service';
+import { LogService } from './shared/services/log.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { PanierService } from './shared/services/panier.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
