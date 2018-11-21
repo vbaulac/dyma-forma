@@ -1,0 +1,14 @@
+<div class="col-12" style="margin-top:20px;padding:20px;">
+  <h3 class="col-12">Users : </h3>
+  <ul class="list-group">
+    <li [routerLink]="['/users', user.id]"
+        [queryParams]="{ name: user.name }"
+        [fragment]="'myFragment'"
+        *ngFor="let user of users"
+        class="list-group-item">
+        {{ user.name }}
+        <button class="btn btn-primary float-right" (click)="userRedirection(user.id, user.name)">View</button>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

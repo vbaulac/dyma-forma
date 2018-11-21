@@ -1,0 +1,10 @@
+<div class="col-12" style="margin-top:20px;padding:20px;">
+  <h3 class="col-12">User details : <button class="btn btn-success ml-auto"
+                                            [routerLink]="['edit']">Edit</button></h3>
+  <ul class="list-group">
+    <li class="list-group-item">Name :{{ user.name }}</li>
+    <li class="list-group-item">Id : {{ user.id }}</li>
+  </ul>
+  <hr>
+  <router-outlet></router-outlet>
+</div>
