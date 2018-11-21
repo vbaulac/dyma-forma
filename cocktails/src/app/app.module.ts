@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { CocktailsListComponent } from './cocktails-container/cocktails-list/cocktails-list.component';
 import { CocktailsDetailsComponent } from './cocktails-container/cocktails-details/cocktails-details.component';
 import { CocktailsContainerComponent } from './cocktails-container/cocktails-container.component';
+import { ActiveDirective } from './shared/directives/active.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { CocktailsContainerComponent } from './cocktails-container/cocktails-con
     HeaderComponent,
     CocktailsListComponent,
     CocktailsDetailsComponent,
-    CocktailsContainerComponent
+    CocktailsContainerComponent,
+    ActiveDirective
   ],
   imports: [
     BrowserModule
