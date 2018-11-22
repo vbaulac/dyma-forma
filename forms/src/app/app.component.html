@@ -2,13 +2,22 @@
 
 <div class="container">
   <form [formGroup]='myForm' (ngSubmit)="submit()" class="col-6 mx-auto" novalidate>
-    <div class="form-group">
-      <label> Username : </label>
-      <input formControlName="username" type="text" class="form-control" />
-    </div>    
-    <div class="form-group">
-      <label> Email : </label>
-      <input formControlName="email" type="email" class="form-control" />
+    <div formGroupName='login'>
+      <div class="form-group">
+        <label> Username : </label>
+        <input formControlName="username" type="text" class="form-control" />
+      </div>    
+      <div class="form-group">
+        <label> Email : </label>
+        <input formControlName="email" type="email" class="form-control" />
+      </div>
+    </div>
+    <div formArrayName="hobbies">
+      <label> Hobby : </label>
+      <button class="btn btn-success mr-auto" (click)="addHobby()"> Ajouter </button>
+      <div class="form-group" *ngFor="let hobby of myForm.get('hobbies').controls; let i = index;">
+        <input type="text" [formControlName]="i" class="form-control">
+      </div>
     </div>
     <div class="form-group">
       <label> Password : </label>
@@ -18,6 +27,7 @@
       <label> Confirm password : </label>
       <input #confirm type="password" class="form-control" />
     </div>
+    <p style="color:red" *ngIf="myForm.get('password').hasError('noMatch')">Il y a une erreur</p>
     <input type="submit" class="btn btn-primary" />
   </form>
 </div>
