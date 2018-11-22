@@ -7,6 +7,11 @@ import { CocktailsListComponent } from './cocktails-container/cocktails-list/coc
 import { CocktailsDetailsComponent } from './cocktails-container/cocktails-details/cocktails-details.component';
 import { CocktailsContainerComponent } from './cocktails-container/cocktails-container.component';
 import { ActiveDirective } from './shared/directives/active.directive';
+import { PanierComponent } from './panier/panier.component';
+import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
+import { AppRouting } from './app.routing';
+import { PanierService } from './shared/services/panier.service';
+import { CocktailEditComponent } from './cocktail-edit/cocktail-edit.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +20,16 @@ import { ActiveDirective } from './shared/directives/active.directive';
     CocktailsListComponent,
     CocktailsDetailsComponent,
     CocktailsContainerComponent,
-    ActiveDirective
+    ActiveDirective,
+    PanierComponent,
+    IngredientsListComponent,
+    CocktailEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRouting
   ],
-  providers: [],
+  providers: [PanierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
