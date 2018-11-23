@@ -39,4 +39,12 @@ export class CocktailService {
   public getCocktail(index: number): Cocktail {
     return this.cocktails.value[index];
   }
+
+  addCocktail(cocktail: Cocktail): void {
+    const cocktails = this.cocktails.value.slice();
+    cocktails.push(cocktail); //only if same name between model and formGroup
+    // cocktails.push(new Cocktail(cocktail.name, cocktail.img, cocktail.desc, cocktail.ingredients.map( ingredient => new Ingredient(ingredient.name, ingredient.quantity))));
+
+    this.cocktails.next(cocktails);
+  }
 }
