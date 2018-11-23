@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="text-center"> Service Http </h1>
+  <input type="text" class="col-12 form-content" [(ngModel)]="username" />
+  <hr>
+  <button class="btn btn-primary" (click)="addUser()">Ajouter</button>
+  <hr>
+  <h3> Users : </h3>
+  <ul class="list-group">
+    <li class="list-group-item"
+        *ngFor="let user of users">
+      nom   : {{ user.name }} <br/>
+      age   : {{ user.age }}
+    </li>
+  </ul>
+</div>
