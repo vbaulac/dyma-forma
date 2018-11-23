@@ -1,7 +1,9 @@
 <div class="row">
     <div class="list-group col-12">
+      <input type="text" class="form-control" [(ngModel)]="search" placeholder="Search">
+      <hr>
       <!-- [appActive]="index === activeCocktail" -->
-      <a *ngFor="let cocktail of cocktails;let index = index" 
+      <a *ngFor="let cocktail of cocktails | filter:search;let index = index" 
           [routerLink]="index"
           routerLinkActive="active"
           class="list-group-item list-group-action">{{ cocktail.name }}</a>

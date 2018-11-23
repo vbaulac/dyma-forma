@@ -11,6 +11,8 @@ import { Cocktail } from '../shared/models/cocktail.model';
 })
 export class CocktailEditComponent implements OnInit {
   public cocktailForm: FormGroup;
+  public cocktail: Cocktail;
+  private edit: boolean;
 
   constructor(private formBuilder: FormBuilder, 
               private cocktailService: CocktailService,
@@ -20,9 +22,11 @@ export class CocktailEditComponent implements OnInit {
 
     this.activatedRoute.params.subscribe((params: Params) => {
       if (params.index) {
-        const cocktailToLoad = this.cocktailService.getCocktail(params.index);
-        this.initForm(cocktailToLoad);
+        this.edit = true;
+        this.cocktailService.getCocktail(params.index).subscribe(c => this.cocktail = c);
+        this.initForm(this.cocktail);
       } else {
+        this.edit = false;
         this.initForm();
       }      
     });
@@ -48,7 +52,12 @@ export class CocktailEditComponent implements OnInit {
   }
 
   createCocktail() {
-    this.cocktailService.addCocktail(this.cocktailForm.value);
+    if (this.edit) {
+      this.cocktailService.editCocktail(this.cocktailForm.value);
+    }
+    else {
+      this.cocktailService.addCocktail(this.cocktailForm.value);
+    }
     console.log(this.cocktailForm);
   }
 }

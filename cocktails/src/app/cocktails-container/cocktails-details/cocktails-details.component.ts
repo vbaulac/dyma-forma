@@ -21,7 +21,7 @@ export class CocktailsDetailsComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.index = params.index ? params.index : 0;
-      this.cocktail = this.cocktailService.getCocktail(this.index);
+      this.cocktailService.getCocktail(this.index).subscribe( cock => this.cocktail = cock);
       // this.cocktail = params.index ? this.cocktailService.getCocktail(params.index) : this.cocktailService.getCocktail(0);
     })
   }
