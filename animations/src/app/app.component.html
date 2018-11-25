@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="row">
+    <button class="btn btn-secondary col-1 mx-auto" (click)="currentState='normal'"> normal </button>
+    <button class="btn btn-primary col-1 mx-auto" (click)="currentState='wild'"> wild </button>
+    <!-- <button class="btn btn-success col-1 mx-auto"> 3 </button>
+    <button class="btn btn-danger col-1 mx-auto"> 4 </button> -->
+  </div>
+  <div class="row">
+    <div [@square]="currentState" class="square mx-auto"></div>
+  </div>
+</div>

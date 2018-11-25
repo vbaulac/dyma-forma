@@ -1,0 +1,12 @@
+.square {
+    width: 200px;
+    height: 200px;
+    margin-top:100px;
+    /* border:2px solid black; */
+    display: block;
+}
+
+button {
+    margin-top:50px;
+    cursor: pointer;
+}
