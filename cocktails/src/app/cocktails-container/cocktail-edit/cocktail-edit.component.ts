@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
-import { CocktailService } from '../shared/services/cocktail.service';
+import { CocktailService } from '../../shared/services/cocktail.service';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Cocktail } from '../shared/models/cocktail.model';
+import { Cocktail } from '../../shared/models/cocktail.model';
 
 @Component({
   selector: 'app-cocktail-edit',
