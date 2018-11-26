@@ -1,3 +1,6 @@
-<p>
-  toggle works!
-</p>
+<div class="container-fluid">
+  <nav [@nav]="state" class="left-menu">      
+        <a class="navbar-brand" href="#">Navbar</a>
+  </nav>
+  <button class="btn btn-primary toggle-btn" (click)="changeState()"> Toggle menu </button>
+</div>
