@@ -1,0 +1,42 @@
+<div 
+  style="background:red;height:100%;"
+  fxLayout="row nowrap"
+  fxLayoutAlign="start stretch">
+  <!-- fxHide.xs="true" -->
+  <div 
+    style="background:purple;"    
+    fxFlex="200px"
+    fxFlex.xs="50px"
+    fxLayout="column nowrap"
+    fxLatouyAlign="start"
+    fxLayoutGap="3px">
+  
+    <div [ngStyle]="{ backgroundColor:'orange' }"
+         [ngStyle.xs]="{ backgroundColor:'yellow' }"
+         fxFlex="50px">
+    </div>
+
+    <div style="background:orange"
+         fxFlex="50px">
+    </div>
+
+    <div style="background:orange"
+         fxFlex="50px">
+    </div>
+
+  </div> 
+    <!-- fxFlex="20%" -->
+    <div
+      style="background:green;"
+      fxFlex="1 1 auto"
+      fxLayout="row wrap"
+      fxLayoutAlign="space-between space-between">
+
+      <div style="background:blue;height:200px;" fxFlex="150px"></div>
+      <div style="background:blue;height:200px;" fxFlex="150px"></div>
+      <div style="background:blue;height:200px;" fxFlex="150px"></div>
+      <div style="background:blue;height:200px;" fxFlex="150px"></div>
+      <div style="background:blue;height:200px;" fxFlex="150px"></div>
+      <div style="background:blue;height:200px;" fxFlex="150px"></div>
+    </div>
+</div>
