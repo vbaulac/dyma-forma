@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <h1 class="col-12"> Material </h1>
+  <div class="row">
+    <h3 class="col-12">Formulaire : </h3>
+    <form [formGroup]="form" class="col-6"><br/><br/>
+
+    <!-- <input type="text" formControlName="input"> <br/><br/> -->
+
+    <mat-form-field>
+      <input type="text" matInput formControlName="input">
+    </mat-form-field> <br/><br/>
+
+    <!-- <input type="checkbox" formControlName="checkbox"> <br/><br/> -->
+
+    <mat-checkbox formControlName="checkbox">
+      Vrai/faux
+    </mat-checkbox> <br/><br/>
+    
+    <!-- <input type="radio" value="Femme" formControlName="radio"> Femme <br/>
+    <input type="radio" value="Homme" formControlName="radio"> Homme <br/><br/> -->
+
+    <mat-radio-group formControlName="radio">
+      <mat-radio-button value="male"> Homme   </mat-radio-button>
+      <mat-radio-button value="female"> Femme </mat-radio-button>
+    </mat-radio-group> <br/><br/>
+
+    <!-- <input type="radio" value="Femme" formControlName="slidetoggle"> Femme <br/>
+    <input type="radio" value="Homme" formControlName="slidetoggle"> Homme <br/><br/> -->
+
+    <mat-slide-toggle formControlName="slidetoggle"> newsmetter</mat-slide-toggle> <br/><br/>
+
+
+    <pre>{{ form.value | json }}</pre>
+  </form> 
+  </div>
+</div>
