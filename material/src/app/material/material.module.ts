@@ -16,7 +16,13 @@ import { MatButtonModule,
          MatIconModule,
          MatToolbarModule, 
          MatListModule,
-         MatGridListModule} from '@angular/material';
+         MatGridListModule,
+         MatCardModule,
+         MatStepperModule,
+         MatTabsModule,
+         MatExpansionModule, 
+         MatButtonToggleModule,
+         MatChipsModule} from '@angular/material';
 
 const MATERIAL = [    
   MatButtonModule,
@@ -35,7 +41,13 @@ const MATERIAL = [
   MatIconModule,
   MatToolbarModule,
   MatListModule,
-  MatGridListModule
+  MatGridListModule,
+  MatCardModule,
+  MatStepperModule,
+  MatTabsModule,
+  MatExpansionModule,
+  MatButtonToggleModule,
+  MatChipsModule
 ]
 
 @NgModule({

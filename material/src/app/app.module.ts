@@ -7,12 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { CardsComponent } from './cards/cards.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    CardsComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [ToolbarComponent]
+  bootstrap: [StepperComponent]
 })
 export class AppModule { }
