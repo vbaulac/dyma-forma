@@ -1,0 +1,37 @@
+<mat-toolbar color="accent">
+  <span>Material</span>
+  <span class="toolbar-content"></span>
+  <span>MENU</span>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <div class="row">
+    <h3 class="col-12"> NAVIGATION : </h3>
+    <div class="col-6 mx-auto">
+      <mat-list>
+        <mat-list-item>1</mat-list-item>
+        <mat-list-item>2</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>3</mat-list-item>
+      </mat-list>
+
+      <mat-selection-list #random>
+        <mat-list-option>fruit</mat-list-option>
+        <mat-list-option>legume</mat-list-option>
+        <mat-list-option>voiture</mat-list-option>
+      </mat-selection-list>
+      <p> {{ random.selectedOptions.selected.length }}</p>
+      <!-- we can subscribe to the observable -->
+
+      <mat-grid-list cols="2" rowHeight="2:1" gutterSize="3px"> <!-- ratio, 2 fois plus large que haute -->
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+        <mat-grid-tile></mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+</div>

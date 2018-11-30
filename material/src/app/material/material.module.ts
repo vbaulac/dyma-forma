@@ -5,7 +5,18 @@ import { MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
          MatRadioModule,
-         MatSlideToggleModule } from '@angular/material';
+         MatSlideToggleModule,
+         MatSelectModule,
+         MatSliderModule,
+         MatDatepickerModule,
+         MatNativeDateModule,
+         MatAutocompleteModule,
+         MatMenuModule, 
+         MatSidenavModule,
+         MatIconModule,
+         MatToolbarModule, 
+         MatListModule,
+         MatGridListModule} from '@angular/material';
 
 const MATERIAL = [    
   MatButtonModule,
@@ -13,7 +24,18 @@ const MATERIAL = [
   MatFormFieldModule,
   MatInputModule,
   MatRadioModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatSliderModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatAutocompleteModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatListModule,
+  MatGridListModule
 ]
 
 @NgModule({

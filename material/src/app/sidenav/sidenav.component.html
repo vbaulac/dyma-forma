@@ -1,0 +1,43 @@
+<mat-sidenav-container>
+<mat-sidenav #sidenav>
+  <button mat-button> hello </button><br><br>
+</mat-sidenav>
+
+
+  <div class="container-fluid">
+    <h1 class="col-12"> Material </h1>
+    <div class="row">
+      <h3 class="col-12"> NAVIGATION : </h3>
+      <div class="col-6 mx-auto">
+        <button mat-button> hello </button><br><br>
+        <button mat-button color="primary"> hello </button><br><br>
+        <button mat-raised-button [matMenuTriggerFor]="menu"> menu</button><br><br>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>one item</button>
+          <button mat-menu-item [matMenuTriggerFor]="menu2">second item</button>
+          <button mat-menu-item>OUIN item</button>
+        </mat-menu>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item>BLA item</button>
+          <button mat-menu-item>ZUP item</button>
+          <button mat-menu-item>KILL item</button>
+        </mat-menu>
+        <button mat-raised-button color="primary" (click)="sidenav.open()"> SIDE-BAR </button><br><br>
+        <button mat-raised-button color="warn"> warn </button><br><br>
+        <button mat-raised-button color="warn">
+           <mat-icon> dialpad </mat-icon> 
+        </button><br><br>
+        <button mat-raised-button color="accent"> accent </button><br><br>
+        <button mat-raised-button disabled> hello </button><br><br>
+        <button mat-fab> hello </button><br><br>
+        <button mat-mini-fab> hello </button><br><br>
+        <button mat-icon-button>
+            <mat-icon>add</mat-icon>
+        </button><br><br>
+        <button mat-icon-button>
+            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-sidenav-container>

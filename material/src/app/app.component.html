@@ -6,9 +6,23 @@
 
     <!-- <input type="text" formControlName="input"> <br/><br/> -->
 
-    <mat-form-field>
+    <mat-form-field floatLabel="auto">
+      <!-- <mat-placeholder>placeholder</mat-placeholder>
       <input type="text" matInput formControlName="input">
-    </mat-form-field> <br/><br/>
+      <mat-hint align="end">{{ form.get('input').value.length }}/10</mat-hint> -->
+
+      <mat-placeholder>email</mat-placeholder>
+      <input type="text" matInput formControlName="email">
+      <!-- <mat-hint align="end">this is the hint ;)</mat-hint> -->
+      <mat-hint align="end">{{ form.get('email').value.length }}/10</mat-hint>
+      <mat-error *ngIf="form.get('email').invalid">email non valid !</mat-error>
+  </mat-form-field> <br/><br/>
+
+  <mat-form-field floatLabel="never" require>
+    <mat-placeholder>blabla</mat-placeholder>
+    <input type="text" matInput formControlName="input">
+    <span matPrefix>&euro;</span>
+</mat-form-field> <br/><br/>
 
     <!-- <input type="checkbox" formControlName="checkbox"> <br/><br/> -->
 
@@ -27,8 +41,34 @@
     <!-- <input type="radio" value="Femme" formControlName="slidetoggle"> Femme <br/>
     <input type="radio" value="Homme" formControlName="slidetoggle"> Homme <br/><br/> -->
 
-    <mat-slide-toggle formControlName="slidetoggle"> newsmetter</mat-slide-toggle> <br/><br/>
+    <mat-slide-toggle formControlName="slidetoggle" color="primary"> newsmetter</mat-slide-toggle> <br/><br/>
 
+    <hr>
+    <mat-form-field> <!-- option groups are possible -->
+      <mat-select formControlName="select" placeholder="choose...">
+        <mat-option value="ketch"> ketch </mat-option>
+        <mat-option value="sloop"> sloop </mat-option>
+        <mat-option value="cat"> catamaran </mat-option>
+      </mat-select>
+    </mat-form-field><br/><br/>
+
+    <mat-slider formControlName="slider" min="0" max="10"> sliiiiiiiide </mat-slider><br/><br/>
+
+    <!-- library moment / MatMomentDateModule / MAT_DATE_LOCALE / DateAdapter -->
+    <mat-form-field>
+      <input matInput placeholder="choisir une date" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> <br/><br/>
+    <hr/>
+
+    <mat-form-field>
+      <input formControlName="autoc" matInput [matAutocomplete]="auto" placeholder="Choisir un nombre">
+    </mat-form-field><br><br>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filterOptions | async" [value]="option">{{ option }}</mat-option>
+    </mat-autocomplete>
 
     <pre>{{ form.value | json }}</pre>
   </form> 
