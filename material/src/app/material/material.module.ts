@@ -22,7 +22,9 @@ import { MatButtonModule,
          MatTabsModule,
          MatExpansionModule, 
          MatButtonToggleModule,
-         MatChipsModule} from '@angular/material';
+         MatChipsModule, 
+         MatIconRegistry,          
+         MatProgressSpinnerModule} from '@angular/material';
 
 const MATERIAL = [    
   MatButtonModule,
@@ -47,7 +49,8 @@ const MATERIAL = [
   MatTabsModule,
   MatExpansionModule,
   MatButtonToggleModule,
-  MatChipsModule
+  MatChipsModule,
+  MatProgressSpinnerModule
 ]
 
 @NgModule({
@@ -56,6 +59,7 @@ const MATERIAL = [
     CommonModule,
     ...MATERIAL
   ],
+  providers: [MatIconRegistry],
   exports: MATERIAL
 })
 export class MaterialModule { }
