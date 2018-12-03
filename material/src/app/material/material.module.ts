@@ -24,7 +24,13 @@ import { MatButtonModule,
          MatButtonToggleModule,
          MatChipsModule, 
          MatIconRegistry,          
-         MatProgressSpinnerModule} from '@angular/material';
+         MatProgressSpinnerModule,
+         MatDialogModule,
+         MatTooltipModule,
+         MatSnackBarModule,
+         MatTableModule,
+         MatPaginatorModule,
+         MatSortModule} from '@angular/material';
 
 const MATERIAL = [    
   MatButtonModule,
@@ -50,7 +56,13 @@ const MATERIAL = [
   MatExpansionModule,
   MatButtonToggleModule,
   MatChipsModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule,
+  MatTooltipModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 ]
 
 @NgModule({

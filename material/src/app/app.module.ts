@@ -9,6 +9,9 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CardsComponent } from './cards/cards.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { DialogComponentComponent } from './dialog-component/dialog-component.component';
+import { TableauxComponent } from './tableaux/tableaux.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,16 +19,20 @@ import { StepperComponent } from './stepper/stepper.component';
     SidenavComponent,
     ToolbarComponent,
     CardsComponent,
-    StepperComponent
+    StepperComponent,
+    DialogComponentComponent,
+    TableauxComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
+  entryComponents: [DialogComponentComponent],
   providers: [],
-  bootstrap: [StepperComponent]
+  bootstrap: [TableauxComponent]
 })
 export class AppModule { }
