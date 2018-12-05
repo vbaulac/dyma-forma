@@ -9,7 +9,13 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CardsComponent } from './cards/cards.component';
 import { StepperComponent } from './stepper/stepper.component';
+<<<<<<< HEAD
 import { MycoComponent } from './myco/myco.component';
+=======
+import { DialogComponentComponent } from './dialog-component/dialog-component.component';
+import { TableauxComponent } from './tableaux/tableaux.component';
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> 978a58b67f1530a53a556abaa5819b089959a711
 
 @NgModule({
   declarations: [
@@ -18,16 +24,23 @@ import { MycoComponent } from './myco/myco.component';
     ToolbarComponent,
     CardsComponent,
     StepperComponent,
+<<<<<<< HEAD
     MycoComponent
+=======
+    DialogComponentComponent,
+    TableauxComponent
+>>>>>>> 978a58b67f1530a53a556abaa5819b089959a711
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
+  entryComponents: [DialogComponentComponent],
   providers: [],
-  bootstrap: [StepperComponent]
+  bootstrap: [TableauxComponent]
 })
 export class AppModule { }
