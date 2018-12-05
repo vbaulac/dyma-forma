@@ -15,8 +15,8 @@ import { TodoState } from './store/todos.reducer';
 export class AppComponent {
   title = 'ngrx1';
   public todos$: Observable<TodoModel[]> = this.store.pipe(
-    select('todos'),
-    map((todoState: TodoState) => todoState.data)
+    select('todos'), // selectionne la proprieté ToDo dans l'objet State
+    map((todoState: TodoState) => todoState.data) // retourne uniquement le data du todos
   );
 
   public message: string;
