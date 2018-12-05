@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TodoModel } from './todo.model';
@@ -12,7 +12,7 @@ import { TodoState } from './store/todos.reducer';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ngrx1';
   public todos$: Observable<TodoModel[]> = this.store.pipe(
     select('todos'), // selectionne la proprieté ToDo dans l'objet State
@@ -22,6 +22,10 @@ export class AppComponent {
   public message: string;
 
   constructor(private store: Store<State>) {}
+
+  ngOnInit() {
+    this.store.dispatch(new todosAction.FetchTodo());
+  }
 
   public addTodo() {
     // this.todoService.addTodo({ message: this.message, done: false });
