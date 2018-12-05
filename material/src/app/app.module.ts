@@ -9,6 +9,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { CardsComponent } from './cards/cards.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { MycoComponent } from './myco/myco.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StepperComponent } from './stepper/stepper.component';
     SidenavComponent,
     ToolbarComponent,
     CardsComponent,
-    StepperComponent
+    StepperComponent,
+    MycoComponent
   ],
   imports: [
     BrowserModule,
