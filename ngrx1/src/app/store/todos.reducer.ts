@@ -1,8 +1,22 @@
 import { TodoModel } from "../todo.model";
-import { TodosActionType, TODO_CREATE, TODO_DELETE, TODO_TOGGLE, CreateTodo, ToggleTodo, TODO_FETCH, TODO_FETCH_SUCCESS, FetchTodo, FetchTodoSuccess, DeleteTodo, TODO_FETCH_ERROR, FetchTodoError } from "./todo.actions";
+import { TodosActionType, 
+    TODO_CREATE, 
+    TODO_DELETE, 
+    TODO_TOGGLE, 
+    CreateTodo, 
+    ToggleTodo, 
+    TODO_FETCH, 
+    TODO_FETCH_SUCCESS, 
+    FetchTodo, 
+    FetchTodoSuccess, 
+    DeleteTodo, 
+    TODO_FETCH_ERROR, 
+    FetchTodoError } from "./todo.actions";
 
 export interface TodoState {
-    data: TodoModel[];
+    data: {
+        [todoId: string]: TodoModel
+    }
     loading: boolean;
     loaded: boolean;
     error: any;
@@ -30,7 +44,10 @@ export function todosReducer(state: TodoState = initialState, action: TodosActio
         case TODO_FETCH_SUCCESS : 
             return {
                 ...state,
-                data: (<FetchTodoSuccess>action).payload,
+                data: (<FetchTodoSuccess>action).payload.reduce((acc, todo) => {
+                    acc[todo.id] = todo;
+                    return acc;
+                }, { ...state.data }),
                 loading: false,
                 loaded: true,
                 error: null
@@ -45,23 +62,22 @@ export function todosReducer(state: TodoState = initialState, action: TodosActio
         case TODO_CREATE :
             return  {
                 ...state,
-                data: [...state.data, (<CreateTodo>action).payload]
+                data: { ...state.data, [Object.keys(state.data).length]: { ...(<CreateTodo>action).payload, id: Object.keys(state.data).length } }
             };
         case TODO_DELETE :
-            return {
+            const remove = { ...state.data };
+            delete remove[(<DeleteTodo>action).payload];
+            return { 
                 ...state,
-                data: state.data.filter((t, i) => i !== (<DeleteTodo>action).payload)
+                data: remove
             };
         case TODO_TOGGLE :
-            const selectedTodo = state.data[(<ToggleTodo>action).payload];
-            selectedTodo.done = !selectedTodo.done;
-            const newTodos = [...state.data];
-            newTodos[(<ToggleTodo>action).payload] = selectedTodo;
-
+            const toggle = { ...state.data };
+            toggle[(<ToggleTodo>action).payload].done = !toggle[(<ToggleTodo>action).payload].done;
             return {
                 ...state,
-                data: newTodos
-            };
+                data: toggle
+            }
         default:
             return state
     }

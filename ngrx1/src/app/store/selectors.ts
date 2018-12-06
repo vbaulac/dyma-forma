@@ -14,6 +14,15 @@ export const todoListSelector = createSelector(todosSelector, (todoState: TodoSt
     return todoState.data;
 });
 
+export const todoListArraySelector = createSelector(todosSelector,
+    (todoState: TodoState) => {
+        if (todoState.data) {
+            return Object.keys(todoState.data).map( idTodo => todoState.data[idTodo]);
+        } else {
+            return null;
+        }
+    })
+
 // "root" selector for router
 export const routerSelector = createFeatureSelector<routerReducer.RouterReducerState<MyRouterState>>('router');
 
@@ -26,10 +35,11 @@ export const myRouterStateSelector = createSelector(routerSelector, routerState 
 export const selectedTodoSelector = createSelector(
     todoListSelector, 
     myRouterStateSelector,
-    (todos: TodoModel[], myRouterState: MyRouterState) => {
+    (todos: { [todoId: string]: TodoModel}, myRouterState: MyRouterState) => {
         const todoId = myRouterState.params.id;
         if (todoId && todos) {
-            return todos.filter(x => x.id === todoId)[0];
+            return todos[todoId];
+            // return todos.filter(x => x.id === todoId)[0];
         } else {
             return null;
         }

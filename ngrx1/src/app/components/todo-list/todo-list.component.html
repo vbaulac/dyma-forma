@@ -12,8 +12,8 @@
       fxLayoutAlign="center center"
       [routerLink]="['/todo', todo.id]">
         <span fxFlex="auto">{{ todo.message }} ({{ todo.done }})</span>
-        <button class="btn btn-success" (click)="toggleTodo(i)">toogle</button>
-        <button class="btn btn-danger" (click)="deleteTodo(i)">Supprimer</button>
+        <button class="btn btn-success" (click)="toggleTodo(todo.id)">toogle</button>
+        <button class="btn btn-danger" (click)="deleteTodo(todo.id)">Supprimer</button>
       </li>
     </ul>
 

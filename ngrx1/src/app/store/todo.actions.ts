@@ -24,13 +24,13 @@ export class CreateTodo implements Action {
 export class DeleteTodo implements Action {
     readonly type: string = TODO_DELETE;
     
-    constructor(public payload: number) {}
+    constructor(public payload: string) {}
 }
 
 export class ToggleTodo implements Action {
     readonly type: string = TODO_TOGGLE;
     
-    constructor(public payload: number) {}
+    constructor(public payload: string) {}
 }
 
 export class FetchTodo implements Action {

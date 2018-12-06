@@ -6,7 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { State } from '../../store';
 import * as todosAction from '../../store/todo.actions';
 import { TodoState } from '../../store/todos.reducer';
-import { todoListSelector, selectedTodoSelector } from '../../store/selectors'
+import { todoListSelector, selectedTodoSelector, todoListArraySelector } from '../../store/selectors'
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,7 @@ export class TodoListComponent implements OnInit {
 
 
   // With selectors || les selectors permette de faire du code reuse concernant le maping a faire des reducer du store
-  public todos$: Observable<TodoModel[]> = this.store.pipe(select(todoListSelector));
+  public todos$: Observable<TodoModel[]> = this.store.pipe(select(todoListArraySelector));
 
   public selectedTodo$: Observable<TodoModel> = this.store.pipe(select(selectedTodoSelector));
 
@@ -37,17 +37,14 @@ export class TodoListComponent implements OnInit {
   }
 
   public addTodo() {
-    // this.todoService.addTodo({ message: this.message, done: false });
     this.store.dispatch(new todosAction.CreateTodo({ message: this.message, done: false }));
   }
 
-  public toggleTodo(index: number) {
-    this.store.dispatch(new todosAction.ToggleTodo(index));
-    // this.todoService.toggleTodo(index);
+  public toggleTodo(id: string) {
+    this.store.dispatch(new todosAction.ToggleTodo(id));
   }
 
-  public deleteTodo(index: number) {
-    this.store.dispatch(new todosAction.DeleteTodo(index));
-    // this.todoService.deleteTodo(index);
+  public deleteTodo(id: string) {
+    this.store.dispatch(new todosAction.DeleteTodo(id));
   }
 }
