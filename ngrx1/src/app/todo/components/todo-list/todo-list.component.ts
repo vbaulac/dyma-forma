@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { TodoModel } from '../../todo.model';
+import { TodoModel } from '../../../todo.model';
 import { Store, select } from '@ngrx/store';
-import { State } from '../../store';
+import { State } from '../../../store';
 import * as todosAction from '../../store/todo.actions';
-import { TodoState } from '../../store/todos.reducer';
-import { todoListSelector, selectedTodoSelector, todoListArraySelector } from '../../store/selectors'
+import { selectedTodoSelector, todoListArraySelector } from '../../store/selectors'
 
 @Component({
   selector: 'app-root',

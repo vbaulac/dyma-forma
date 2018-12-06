@@ -11,26 +11,21 @@ import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router
 import { AppComponent } from './app.component';
 import { TodoService } from './todo.service';
 import { reducers } from './store/index';
-import { TodosEffects } from './store/todos.effects';
-import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { TodosEffects } from './todo/store/todos.effects';
 import { MyRouterStateSerializer } from './store/router.helper';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TodoListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    FlexLayoutModule,
-    RouterModule.forRoot([
-      { path: 'todo', component: TodoListComponent },
-      { path: 'todo/:id', component: TodoListComponent },
-      { path: '', redirectTo: 'todo', pathMatch: 'full' }
+    RouterModule.forRoot([      
+      { path: '', redirectTo: 'todo', pathMatch: 'full' },
+      { path: 'todo', loadChildren: './todo/todo.module#TodoModule' }
     ]),    
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([TodosEffects]),
+    EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
       name: 'to do'

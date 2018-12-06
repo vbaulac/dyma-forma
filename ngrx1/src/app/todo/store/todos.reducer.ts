@@ -1,4 +1,4 @@
-import { TodoModel } from "../todo.model";
+import { TodoModel } from "../../todo.model";
 import { TodosActionType, 
     TODO_CREATE, 
     TODO_DELETE, 

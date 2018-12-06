@@ -1,8 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { TodoState } from './todos.reducer';
 import * as routerReducer from '@ngrx/router-store';
-import { MyRouterState } from './router.helper';
-import { TodoModel } from '../todo.model';
+import { MyRouterState } from '../../store/router.helper';
+import { TodoModel } from '../../todo.model';
 
 // selectors ont un cache !! si les input n'ont pas changés
 
