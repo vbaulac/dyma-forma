@@ -6,6 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { State } from '../../store';
 import * as todosAction from '../../store/todo.actions';
 import { TodoState } from '../../store/todos.reducer';
+import { todoListSelector, selectedTodoSelector } from '../../store/selectors'
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,18 @@ import { TodoState } from '../../store/todos.reducer';
 })
 export class TodoListComponent implements OnInit {
   title = 'ngrx1';
-  public todos$: Observable<TodoModel[]> = this.store.pipe(
-    select('todos'), // selectionne la proprieté ToDo dans l'objet State
-    map((todoState: TodoState) => todoState.data) // retourne uniquement le data du todos
-  );
+
+  // WITHOUT SELECTORS
+  // public todos$: Observable<TodoModel[]> = this.store.pipe(
+  //   select('todos'), // selectionne la proprieté ToDo dans l'objet State
+  //   map((todoState: TodoState) => todoState.data) // retourne uniquement le data du todos
+  // );
+
+
+  // With selectors || les selectors permette de faire du code reuse concernant le maping a faire des reducer du store
+  public todos$: Observable<TodoModel[]> = this.store.pipe(select(todoListSelector));
+
+  public selectedTodo$: Observable<TodoModel> = this.store.pipe(select(selectedTodoSelector));
 
   public message: string;
 

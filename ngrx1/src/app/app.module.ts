@@ -26,6 +26,7 @@ import { MyRouterStateSerializer } from './store/router.helper';
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: 'todo', component: TodoListComponent },
+      { path: 'todo/:id', component: TodoListComponent },
       { path: '', redirectTo: 'todo', pathMatch: 'full' }
     ]),    
     StoreModule.forRoot(reducers),
