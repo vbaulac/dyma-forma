@@ -10,7 +10,7 @@ import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router
 
 import { AppComponent } from './app.component';
 import { TodoService } from './todo.service';
-import { reducers } from './store/index';
+import { reducers, metaReducers } from './store/index';
 import { TodosEffects } from './todo/store/todos.effects';
 import { MyRouterStateSerializer } from './store/router.helper';
 
@@ -24,7 +24,7 @@ import { MyRouterStateSerializer } from './store/router.helper';
       { path: '', redirectTo: 'todo', pathMatch: 'full' },
       { path: 'todo', loadChildren: './todo/todo.module#TodoModule' }
     ]),    
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
