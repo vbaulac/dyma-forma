@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './shared/modules/layout.module';
 import { CoreModule } from './shared/modules/core.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CoreModule } from './shared/modules/core.module';
   imports: [
     BrowserModule,
     LayoutModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
