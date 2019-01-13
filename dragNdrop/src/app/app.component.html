@@ -16,7 +16,7 @@
     <mat-card-header>{{ list.label }}</mat-card-header>
     <mat-card-content>
       <ul>
-        <li [class.odd]="odd" *ngFor="let item of list.items; let odd = odd;"> {{ item.content }}</li>
+        <li (switch)="switchItem($event)" [index]='index' appDrag [class.odd]="odd" *ngFor="let item of list.items; let odd = odd; let index = index"> {{ item.content }}</li>
       </ul>
     </mat-card-content>
     <mat-card-actions fxLayout="row" 
