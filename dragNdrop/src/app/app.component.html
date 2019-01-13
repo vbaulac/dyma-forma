@@ -13,7 +13,7 @@
      fxLayoutGap="15px"
      class="p-15">
   <mat-card *ngFor="let list of lists; let listIndex = index;">
-    <mat-card-header>{{ list.label }}</mat-card-header>
+    <mat-card-header (transfer)='transferItem($event)' appDrag [listIndex]='listIndex'>{{ list.label }}</mat-card-header>
     <mat-card-content>
       <ul>
         <li (switch)="switchItem($event)" [itemIndex]='itemIndex' [listIndex]='listIndex' appDrag [class.odd]="odd" *ngFor="let item of list.items; let odd = odd; let itemIndex = index"> {{ item.content }}</li>

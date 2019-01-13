@@ -14,3 +14,11 @@ li {
 .over {
     background-color: #BDC3C7;
 }
+
+::ng-deep .mat-card-header {
+    padding:15px;
+}
+
+mat-card > .over {
+    background-color: #FFCBCC;
+}

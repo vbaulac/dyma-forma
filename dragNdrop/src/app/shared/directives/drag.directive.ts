@@ -18,6 +18,15 @@ export class DragDirective {
       listIndex: number
     }}> = new EventEmitter();
 
+    @Output() public transfer: EventEmitter<{ 
+      src: {
+        itemIndex: number,
+        listIndex: number
+      }, 
+      dst: {
+        listIndex: number
+      }}> = new EventEmitter();
+
   @HostListener('dragstart', ['$event']) public dragStart($event) {
     // console.log({$event});
     $event.dataTransfer.setData('itemIndex', this.itemIndex); // set the srcIndex in the $event.dataTransfer in the dragstart
@@ -40,17 +49,28 @@ export class DragDirective {
   @HostListener('drop', ['$event']) public drop($event) {
     // console.log({ index :this.index,
     //               srcIndex: $event.dataTransfer.getData('srcIndex') }); // get the previously setted index when wedrop on the target item
-    
-    this.switch.emit({
-      src: {
-        itemIndex: $event.dataTransfer.getData('itemIndex'),
-        listIndex: $event.dataTransfer.getData('listIndex')
-      },
-      dst: {
-        itemIndex: this.itemIndex,
-        listIndex: this.listIndex
-      }
-    });
+    if (this.itemIndex) {
+      this.switch.emit({
+        src: {
+          itemIndex: $event.dataTransfer.getData('itemIndex'),
+          listIndex: $event.dataTransfer.getData('listIndex')
+        },
+        dst: {
+          itemIndex: this.itemIndex,
+          listIndex: this.listIndex
+        }
+      });
+    } else {
+      this.transfer.emit({
+        src: {
+          itemIndex: $event.dataTransfer.getData('itemIndex'),
+          listIndex: $event.dataTransfer.getData('listIndex')
+        },
+        dst: {
+          listIndex: this.listIndex
+        }
+      });
+    }
 
     this.isIn = false;
   }
